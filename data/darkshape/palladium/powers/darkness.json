@@ -1,0 +1,35 @@
+{
+    "name": "Darkness",
+    "persistent_data": true,
+    "background": "minecraft:textures/block/black_glazed_terracotta.png",
+    "icon": "minecraft:wither_skeleton_skull",
+    "gui_display_type": "tree",
+    "abilities": {
+ "darkness_beam":{
+     "type": "palladium:dummy",
+     "icon": "minecraft:red_dye",
+     "title": "Dark",
+     "bar_color": "red",
+     "hidden": false,
+     "hidden_in_bar": false,
+     "list_index": -1,
+     "gui_position": "null",
+     "gui_frame_type": "task",
+     "description": "This is testing",
+     "conditions": {
+         "enabling": [
+                        {
+                         "type": "palladium:action",
+                         "cooldown": 0,
+                         "key_type": "key_bind",
+                         "needs_empty_hand": false,
+                         "allow_scrolling_when_crouching": true
+                        }
+         ],
+         "unlocking": []
+     }
+ }
+     }
+ 
+    
+}
