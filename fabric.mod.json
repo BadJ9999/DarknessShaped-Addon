@@ -1,0 +1,13 @@
+{
+    "schemaVersion": 1,
+    "authors": [
+        "CrimsonBjorn"
+    ],
+    "environment": "*",
+    "id": "darkshape",
+    "version": "1.0.0",
+    "name": "Darkness Shaped",
+    "description": "A mod based around my novel and the powers of the characters.",
+    "icon": "logo.png",
+    "license": "All rights reserved"
+}

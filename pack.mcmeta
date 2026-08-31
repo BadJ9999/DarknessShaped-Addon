@@ -1,0 +1,13 @@
+{
+    "pack": {
+        "id": "darkshape",
+        "pack_format": 15,
+        "description": "A mod based around my novel and the powers of the characters.",
+        "version": "1.0.0"
+    },
+    "dependencies": {
+        "common": {},
+        "fabric": {},
+        "forge": {}
+    }
+}
