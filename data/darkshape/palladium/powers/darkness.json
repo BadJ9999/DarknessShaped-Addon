@@ -2,34 +2,137 @@
     "name": "Darkness",
     "persistent_data": true,
     "background": "minecraft:textures/block/black_glazed_terracotta.png",
-    "icon": "minecraft:wither_skeleton_skull",
+    "icon": "darkshape:textures/icons/darkness.png",
     "gui_display_type": "tree",
     "abilities": {
- "darkness_beam":{
-     "type": "palladium:dummy",
-     "icon": "minecraft:red_dye",
-     "title": "Dark",
-     "bar_color": "red",
-     "hidden": false,
-     "hidden_in_bar": false,
-     "list_index": -1,
-     "gui_position": "null",
-     "gui_frame_type": "task",
-     "description": "This is testing",
-     "conditions": {
-         "enabling": [
-                        {
-                         "type": "palladium:action",
-                         "cooldown": 0,
-                         "key_type": "key_bind",
-                         "needs_empty_hand": false,
-                         "allow_scrolling_when_crouching": true
-                        }
-         ],
-         "unlocking": []
-     }
- }
-     }
- 
+        "darkness_beam": {
+            "type": "palladium:energy_beam",
+            "icon": "darkshape:textures/icons/darkness_beam.png",
+            "title": "Darkness Beam",
+            "bar_color": "red",
+            "list_index": 0,
+            "gui_position": [
+                0,
+                0
+            ],
+            "gui_frame_type": "task",
+            "description": "A powerful beam of darkness that can damage entities and set them on fire.",
+            "energy_beam": "darkshape:darkness_beams",
+            "damage_type": "minecraft:generic",
+            "damage": 7,
+            "max_distance": 35,
+            "speed": 0.9,
+            "set_on_fire_seconds": 5,
+            "cause_fire": false,
+            "smelt_blocks": false,
+            "commands_on_block_hit": [],
+            "commands_on_entity_hit": [
+                "execute positioned ~ ~ ~ run effect give @e[limit=1, distance=..2] minecraft:glowing 2 0 true"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false
+                    }
+                ],
+                "unlocking": []
+            }
+        },
+        "dual_darkness_beam": {
+            "type": "palladium:energy_beam",
+            "icon": "darkshape:textures/icons/dual_darkness_beam.png",
+            "title": "Dual Darkness Beam",
+            "bar_color": "red",
+            "list_index": 1,
+            "gui_position": [
+                0,
+                1
+            ],
+            "gui_frame_type": "task",
+            "description": "A powerful beam of darkness that can damage entities and set them on fire.",
+            "energy_beam": "darkshape:dual_darkness_beams",
+            "damage_type": "minecraft:generic",
+            "damage": 14,
+            "max_distance": 50,
+            "speed": 0.9,
+            "set_on_fire_seconds": 10,
+            "cause_fire": false,
+            "smelt_blocks": false,
+            "commands_on_block_hit": [],
+            "commands_on_entity_hit": [
+                "execute positioned ~ ~ ~ run effect give @e[limit=1, distance=..2] minecraft:glowing 2 2 true"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false
+                    }
+                ],
+                "unlocking": []
+            }
+        },
+        "darkness_aura": {
+            "type": "palladium:command",
+            "icon": "minecraft:black_dye",
+            "title": "Darkness Aura",
+            "gui_position": [
+                0,
+                2
+            ],
+            "bar_color": "black",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 2,
+            "gui_position": "null",
+            "gui_frame_type": "task",
+            "description": "null",
+            "first_tick_commands": [
+            
+            ],
+            "last_tick_commands": [],
+            "commands": [
+             "effect give @e[type=!player,distance=..10] minecraft:blindness 6 0 true",
+                "effect give @e[type=!player,distance=..10] minecraft:weakness 6 0 true",
+                "effect give @e[type=!player,distance=..10] minecraft:darkness 6 0 true"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:toggle",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false
+                    }
+                ],
+                "unlocking": []
+            }
+        }
+    },
+        "darkness_invisibility": {
+            "type": "palladium:invisibility",
+            "title": "Shadow Veil",
+            "bar_color": "black",
+            "gui_position": [
+                2,
+                0
+            ],
+            "gui_frame_type": "task",
+            "description": "Full invisibility: body, armor and held items are not rendered, and mobs cannot see you. Active while Darkness Aura is active.",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "darkness_aura"
+                    }
+                ],
+                "unlocking": []
+            }
+        }
     
 }

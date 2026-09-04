@@ -1,13 +1,13 @@
 {
     "pack": {
-        "id": "darkshape",
-        "pack_format": 15,
+        "id": "darkness_shaped",
         "description": "A mod based around my novel and the powers of the characters.",
+        "pack_format": 15,
         "version": "1.0.0"
     },
     "dependencies": {
-        "common": {},
-        "fabric": {},
-        "forge": {}
+        "common": {
+            "palladium": ">=4.0.0"
+        }
     }
 }
